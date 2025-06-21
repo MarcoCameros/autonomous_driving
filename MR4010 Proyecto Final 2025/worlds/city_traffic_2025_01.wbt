@@ -123,8 +123,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.40659534115171364 0.44388149433762736 -0.7985295533280635 1.7099771585827528
-  position -248.10816296643986 -25.118681356096268 31.291988478300226
+  orientation -0.37658962356977027 0.7710361038644333 0.5135012969381223 1.5389710338933487
+  position -241.18987740694882 -106.44838200273205 60.31746802612348
   near 1
   follow "vehicle"
   followType "Mounted Shot"
@@ -875,35 +875,27 @@ CurvedRoadSegment {
   curvatureRadius 40.5
 }
 DEF WEBOTS_VEHICLE0 BmwX5 {
-  hidden position_0_0 -9.657401340925806e-08
-  hidden position2_0_0 6748.084329771776
-  hidden position_0_1 1.3190553032824126e-07
-  hidden position2_0_1 6803.395611870296
-  hidden position_0_2 6732.487554612452
-  hidden position_0_3 6786.782838387086
-  hidden position_0_9 0.3005576366433788
-  hidden linearVelocity_0 -0.0008419630337162052 -4.166202106016851 4.568381029570054e-14
-  hidden angularVelocity_0 -3.583622194795388e-11 -1.788809089925283e-07 -2.67577332199567e-08
-  hidden rotation_1 -4.828700670455898e-08 0.9999999999985486 1.7030853981316745e-06 0.05669013910032099
-  hidden linearVelocity_1 -0.0008419918884519727 -4.166202128120221 6.95460348458644e-09
-  hidden angularVelocity_1 11.140374166387783 -0.002265002349814413 -3.933508530868488e-07
-  hidden rotation_2 6.595276516412034e-08 0.9999999999999941 8.729211060391758e-08 4.989109501983734
-  hidden linearVelocity_2 -0.0008420112904775976 -4.166202083897878 -6.954536894424549e-09
-  hidden angularVelocity_2 11.140374145908577 -0.0022379760234959023 1.587534580675231e-06
-  hidden rotation_3 0 1 0 3.087094684064517
-  hidden linearVelocity_3 -0.0008419246546008686 -4.16620212843267 6.9531317860429916e-09
-  hidden angularVelocity_3 11.138781547993378 -0.0022654231804362965 -6.156582442000662e-07
-  hidden rotation_4 0 1 0 0.9427066331321811
-  hidden linearVelocity_4 -0.0008419211969876148 -4.166202083617195 -6.953016212014323e-09
-  hidden angularVelocity_4 11.138781434021226 -0.0022364904974693975 1.4436232942070666e-06
-  hidden translation_27 -0.042008141267805055 0.6099454705941151 -0.047151995300598215
-  hidden rotation_27 0.7466598432279096 0 -0.6652060421485012 0.30055763664337837
-  translation -237.35701577929376 -37.17070379896756 0.31604309889083304
-  rotation -0.0022798415519827797 -0.0022794161796866204 -0.999994803278686 1.571002262690317
+  hidden position_0_0 -0.5753837881550623
+  hidden position_0_1 -0.44422085044550647
+  hidden position_0_9 0.31585899154827496
+  hidden linearVelocity_0 -2.06890117999232e-21 -2.258193120155715e-20 -0.31392
+  hidden angularVelocity_0 -2.093435920756913e-18 9.678071646771944e-18 5.184955849011116e-18
+  hidden linearVelocity_1 6.953086337977503e-18 5.3779889096023444e-18 -0.31392
+  hidden angularVelocity_1 1.3156926561991455e-15 -1.579098561418625e-15 2.2085605739757687e-15
+  hidden linearVelocity_2 8.013561483140073e-18 -2.8126076354188433e-18 -0.31392
+  hidden angularVelocity_2 3.94142886872607e-15 -6.187053568807119e-15 -5.41418584744316e-17
+  hidden linearVelocity_3 -7.917353384740351e-18 3.565338896469e-18 -0.31392
+  hidden angularVelocity_3 -3.343043990546569e-16 2.7316773079015286e-15 -9.876081777316393e-15
+  hidden linearVelocity_4 -6.911367691044405e-18 -4.625258090548692e-18 -0.31392
+  hidden angularVelocity_4 5.5376016491633835e-17 -4.4114693029948216e-16 -5.195854112448236e-15
+  hidden translation_30 -0.040867206358425 0.6412342465204377 -0.04587135407578424
+  hidden rotation_30 0.7466598432279096 0 -0.6652060421485012 0.31585899154827474
+  translation -238.539 -68.5069 0.76370192
+  rotation 0.004636988621445622 0.005009228510780498 -0.9999767027117439 1.44831
   controller "<extern>"
   sensorsSlotTop [
     Camera {
-      translation 0.72 0 -0.05
+      translation 0.75 0 -0.05
       children [
         Pose {
           translation -0.5 0 0
@@ -913,6 +905,7 @@ DEF WEBOTS_VEHICLE0 BmwX5 {
               appearance PBRAppearance {
                 baseColor 0.8 0.8 0.8
                 roughness 1
+                metalness 0
               }
               geometry Cylinder {
                 height 0.1
@@ -922,7 +915,33 @@ DEF WEBOTS_VEHICLE0 BmwX5 {
           ]
         }
       ]
-      name "camera_2"
+      name "camera_center"
+      fieldOfView 1
+      width 200
+      height 60
+    }
+    Camera {
+      translation 0.75 0 -0.05
+      children [
+        Pose {
+          translation -0.5 0 0
+          rotation 0 -0.7071067811865475 0.7071067811865475 1.57
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.8 0.8 0.8
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      name "camera_1"
       fieldOfView 1
       width 200
       height 66
@@ -934,11 +953,12 @@ DEF WEBOTS_VEHICLE0 BmwX5 {
     }
     Display {
       name "display_image_1"
-      width 255
-      height 128
+      width 200
+      height 66
     }
     Camera {
-      translation 0.72 0 -0.05
+      translation 0.60742 0.625 -0.05
+      rotation 0 0 1 0.523599
       children [
         Pose {
           translation -0.05 0 0
@@ -958,10 +978,63 @@ DEF WEBOTS_VEHICLE0 BmwX5 {
           ]
         }
       ]
-      name "camera_1"
+      name "camera_left"
       fieldOfView 1
-      width 255
-      height 128
+      width 200
+      height 66
+    }
+    Camera {
+      translation 0.607 -0.625 -0.05
+      rotation 0 0 1 -0.524
+      children [
+        Pose {
+          translation -0.05 0 0
+          rotation 0 -1 0 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.8 0.8 0.8
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      name "camera_right"
+      fieldOfView 1
+      width 200
+      height 66
+    }
+    Camera {
+      translation 0.75 0 -0.05
+      children [
+        Pose {
+          translation -0.05 0 0
+          rotation 0 -1 0 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.8 0.8 0.8
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.04
+              }
+            }
+          ]
+        }
+      ]
+      name "camera_center"
+      fieldOfView 1
+      width 200
+      height 66
     }
   ]
   sensorsSlotCenter [
@@ -1627,20 +1700,20 @@ SpeedLimitSign {
   ]
 }
 TrafficCone {
-  hidden linearVelocity_0 -8.284602648913687e-10 9.636121834680826e-13 -1.2893782184176158e-09
-  hidden angularVelocity_0 -5.82541480717881e-12 -5.011346591015325e-09 -3.355910719682514e-15
-  translation 33.97404491391233 -53.760799993949654 -0.00407955858341752
-  rotation -0.00027493690394901795 0.9999998045457766 0.0005615319293400064 0.013679466841998196
+  hidden linearVelocity_0 1.2823235997460793e-16 -4.703339048434457e-18 -8.526512829121202e-16
+  hidden angularVelocity_0 2.836636180570947e-17 7.751725281806889e-16 1.7797705262565555e-19
+  translation 33.97404491391366 -53.76079999394967 -0.004079558663827976
+  rotation -0.0002749369376982896 0.9999998045457599 0.0005615319422669203 0.01367946652139497
   physics Physics {
     density -1
     mass 1
   }
 }
 TrafficCone {
-  hidden linearVelocity_0 -8.284602533690735e-10 9.635886213570024e-13 -1.2893781899979601e-09
-  hidden angularVelocity_0 -5.825271338090667e-12 -5.0113465243674295e-09 -3.35548974933382e-15
-  translation 33.96964491391233 -51.43499999394965 -0.00407955858341752
-  rotation -0.0002749369039490393 0.9999998045457765 0.0005615319293400963 0.013679466841998193
+  hidden linearVelocity_0 1.571195307436727e-16 -1.503494123346548e-17 -4.831690603168681e-16
+  hidden angularVelocity_0 9.074606185674783e-17 9.54467161923562e-16 3.137229542450156e-20
+  translation 33.96964491391366 -51.43499999394967 -0.0040795586638280035
+  rotation -0.00027493693769831574 0.9999998045457599 0.000561531942267003 0.01367946652139497
   name "traffic cone(1)"
   physics Physics {
     density -1
@@ -1648,10 +1721,10 @@ TrafficCone {
   }
 }
 TrafficCone {
-  hidden linearVelocity_0 -8.284602112085146e-10 9.635939679900852e-13 -1.289378218418412e-09
-  hidden angularVelocity_0 -5.825304994920947e-12 -5.011346265702105e-09 -3.356811162466999e-15
-  translation 33.95354491391233 -48.95439999394965 -0.00407955858341752
-  rotation -0.0002749369039489567 0.9999998045457765 0.0005615319293415891 0.013679466841998177
+  hidden linearVelocity_0 1.571195307436727e-16 -1.503494123346548e-17 -4.831690603168681e-16
+  hidden angularVelocity_0 9.074606185674783e-17 9.54467161923562e-16 3.137229542450156e-20
+  translation 33.95354491391366 -48.954399993949664 -0.0040795586638280035
+  rotation -0.0002749369376982977 0.9999998045457599 0.0005615319422685182 0.01367946652139497
   name "traffic cone(2)"
   physics Physics {
     density -1
@@ -1659,10 +1732,10 @@ TrafficCone {
   }
 }
 TrafficCone {
-  hidden linearVelocity_0 -8.284602648913687e-10 9.636121834680826e-13 -1.2893782184176158e-09
-  hidden angularVelocity_0 -5.82541480717881e-12 -5.011346591015325e-09 -3.355910719682514e-15
-  translation 33.71714491391233 -45.72339999394965 -0.00407955858341752
-  rotation -0.00027493690394901795 0.9999998045457766 0.0005615319293400064 0.013679466841998196
+  hidden linearVelocity_0 1.2823235997460793e-16 -4.703339048434457e-18 -8.526512829121202e-16
+  hidden angularVelocity_0 2.836636180570947e-17 7.751725281806889e-16 1.7797705262565555e-19
+  translation 33.71714491391366 -45.72339999394966 -0.004079558663827976
+  rotation -0.0002749369376982896 0.9999998045457599 0.0005615319422669203 0.01367946652139497
   name "traffic cone(3)"
   physics Physics {
     density -1

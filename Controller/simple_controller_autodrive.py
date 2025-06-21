@@ -211,11 +211,17 @@ def main():
     timestep = int(robot.getBasicTimeStep())
 
     # Create camera instance
+    camera_center = robot.getDevice("camera_center")
+    camera_center.enable(timestep)
+
+    camera_left = robot.getDevice("camera_left")
+    camera_left.enable(timestep)
+
+    camera_right = robot.getDevice("camera_right")
+    camera_right.enable(timestep)
+
     camera_1 = robot.getDevice("camera_1")
     camera_1.enable(timestep)
-
-    camera_2 = robot.getDevice("camera_2")
-    camera_2.enable(timestep)
 
 
     # processing display
@@ -280,27 +286,42 @@ def main():
         if current_time - last_photo_time >= PHOTO_INTERVAL:
             last_photo_time = current_time
 
-            # Guardar imagen
+            # Guardar imagen center
             current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
-            file_name = current_datetime + ".png"
+            file_name = current_datetime + "_c.png"
             print("Image taken:", file_name)
 
             image_path = os.path.join(os.getcwd(), file_name)
-            camera_2.saveImage(image_path, 1)
+            camera_center.saveImage(image_path, 1)
 
             # Guardar ángulo en CSV
             with open("photos.csv", "a") as f:
                 f.write(f"{image_path}, {angle}\n")
 
-        '''
-        #filename with timestamp and saved in current directory
-        current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
-        file_name = current_datetime + ".png"
-        print("Image taken")
-        camera.saveImage(os.getcwd() + "/" + file_name, 1)
-        with open("photos.csv", "a") as f:
-            f.write(os.getcwd() + "/" + file_name + ", "+str(angle)+" \n")
-        '''
+
+            # Guardar imagen left
+            current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
+            file_name = current_datetime + "_l.png"
+            print("Image taken:", file_name)
+
+            image_path = os.path.join(os.getcwd(), file_name)
+            camera_center.saveImage(image_path, 1)
+
+            # Guardar ángulo en CSV
+            with open("photos.csv", "a") as f:
+                f.write(f"{image_path}, {angle}\n")
+
+            # Guardar imagen right
+            current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
+            file_name = current_datetime + "_r.png"
+            print("Image taken:", file_name)
+
+            image_path = os.path.join(os.getcwd(), file_name)
+            camera_center.saveImage(image_path, 1)
+
+            # Guardar ángulo en CSV
+            with open("photos.csv", "a") as f:
+                f.write(f"{image_path}, {angle}\n")
 
         #update angle and speed
         driver.setSteeringAngle(angle)
